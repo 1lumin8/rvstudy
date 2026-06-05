@@ -94,7 +94,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 8px;
   display: grid;
-  grid-template-columns: minmax(180px, 1.2fr) minmax(140px, 0.7fr) minmax(140px, 0.7fr) minmax(150px, 0.8fr) auto;
+  grid-template-columns: minmax(240px, 1.45fr) minmax(150px, 0.75fr) minmax(140px, 0.65fr) minmax(165px, 0.8fr) max-content;
   gap: 14px;
   margin: 16px 0;
   padding: 16px;
@@ -106,6 +106,7 @@ label {
   font-size: 0.82rem;
   font-weight: 750;
   gap: 7px;
+  min-width: 0;
 }
 
 select,
@@ -121,6 +122,8 @@ input[type="text"] {
   appearance: none;
   border: 1px solid var(--line);
   color: var(--ink);
+  min-width: 0;
+  width: 100%;
 }
 
 select {
@@ -413,6 +416,17 @@ button:hover {
 
 .flashcard-actions {
   margin-top: 14px;
+}
+
+@media (max-width: 1040px) {
+  .controls,
+  .graduation-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .controls button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 780px) {
