@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revelation Class Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">Revelation Class</p>
+          <h1>Chapter Quiz Generator</h1>
+          <p class="summary">
+            Pick a Revelation chapter, generate a quiz, then review the answer key and the questions you missed.
+          </p>
+        </div>
+        <div class="source-card" aria-label="Google Drive source">
+          <span class="source-label">Source folder</span>
+          <a href="https://drive.google.com/drive/folders/1st2EYt05B2jJmKlu3qaMKa8diwem7-C8" target="_blank" rel="noreferrer">
+            Revelation Class
+          </a>
+          <span>Drive PDFs found for Revelation chapters 1-22.</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Quiz settings">
+        <label>
+          Chapter
+          <select id="chapterSelect"></select>
+        </label>
+        <label>
+          Question count
+          <select id="countSelect">
+            <option value="5">5 questions</option>
+            <option value="8" selected>8 questions</option>
+            <option value="10">10 questions</option>
+          </select>
+        </label>
+        <label>
+          Focus
+          <select id="focusSelect">
+            <option value="mixed" selected>Mixed</option>
+            <option value="detail">Detailed</option>
+            <option value="text">Chapter text</option>
+            <option value="class">Class notes</option>
+          </select>
+        </label>
+        <label>
+          Question style
+          <select id="difficultySelect">
+            <option value="choice" selected>Multiple choice</option>
+            <option value="mixedFormats">Mixed formats</option>
+          </select>
+        </label>
+        <button id="generateBtn" type="button">Generate Quiz</button>
+      </section>
+
+      <section class="chapter-note" id="chapterNote"></section>
+
+      <form id="quizForm" class="quiz" aria-live="polite"></form>
+
+      <section id="results" class="results" hidden></section>
+    </main>
+
+    <script src="quiz-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
