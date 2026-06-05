@@ -6,8 +6,24 @@ const generateBtn = document.querySelector("#generateBtn");
 const chapterNote = document.querySelector("#chapterNote");
 const quizForm = document.querySelector("#quizForm");
 const results = document.querySelector("#results");
+const tabButtons = document.querySelectorAll(".tab-button");
+const studyPanels = document.querySelectorAll(".study-panel");
+const graduationPart = document.querySelector("#graduationPart");
+const graduationJump = document.querySelector("#graduationJump");
+const orderGraduationBtn = document.querySelector("#orderGraduationBtn");
+const shuffleGraduationBtn = document.querySelector("#shuffleGraduationBtn");
+const graduationCard = document.querySelector("#graduationCard");
+const graduationProgress = document.querySelector("#graduationProgress");
+const graduationSide = document.querySelector("#graduationSide");
+const graduationText = document.querySelector("#graduationText");
+const prevGraduationBtn = document.querySelector("#prevGraduationBtn");
+const flipGraduationBtn = document.querySelector("#flipGraduationBtn");
+const nextGraduationBtn = document.querySelector("#nextGraduationBtn");
 
 let activeQuiz = [];
+let graduationDeck = [];
+let graduationIndex = 0;
+let graduationShowingAnswer = false;
 
 function init() {
   CHAPTERS.forEach((chapter) => {
@@ -20,6 +36,19 @@ function init() {
   chapterSelect.value = "18";
   updateChapterNote();
   generateQuiz();
+  resetGraduationDeck();
+}
+
+function switchPanel(panelId) {
+  tabButtons.forEach((button) => {
+    const isActive = button.dataset.panel === panelId;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  studyPanels.forEach((panel) => {
+    panel.hidden = panel.id !== panelId;
+  });
 }
 
 function updateChapterNote() {
@@ -273,6 +302,98 @@ function renderReviewItem({ question, selected, isCorrect }, index) {
   `;
 }
 
+function resetGraduationDeck() {
+  const selectedPart = graduationPart.value;
+  graduationDeck = GRADUATION_CARDS.filter((card) => {
+    return selectedPart === "all" || String(card.part) === selectedPart;
+  });
+  graduationIndex = 0;
+  graduationShowingAnswer = false;
+  renderGraduationJumpOptions();
+  renderGraduationCard();
+}
+
+function renderGraduationJumpOptions() {
+  graduationJump.innerHTML = "";
+  graduationDeck.forEach((card, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = `Part ${card.part}, Question ${card.number}`;
+    graduationJump.append(option);
+  });
+}
+
+function renderGraduationCard() {
+  const card = graduationDeck[graduationIndex];
+  if (!card) {
+    graduationProgress.textContent = "No cards";
+    graduationSide.textContent = "Question";
+    graduationText.textContent = "";
+    return;
+  }
+
+  graduationJump.value = String(graduationIndex);
+  graduationProgress.textContent = `Card ${graduationIndex + 1} of ${graduationDeck.length} · Part ${card.part}, Question ${card.number}`;
+  graduationSide.textContent = graduationShowingAnswer ? "Answer" : "Question";
+  graduationCard.classList.toggle("showing-answer", graduationShowingAnswer);
+  graduationText.innerHTML = formatGraduationText(card, graduationShowingAnswer);
+  flipGraduationBtn.textContent = graduationShowingAnswer ? "Show Question" : "Show Answer";
+}
+
+function formatGraduationText(card, showingAnswer) {
+  const content = showingAnswer
+    ? splitAnswerLines(card.answer)
+    : splitQuestionLines(card.question);
+  const lead = content.lead
+    ? `<span class="flashcard-lead">${escapeHtml(content.lead)}</span>`
+    : "";
+
+  return lead + content.lines
+    .map((line, index) => {
+      return `
+        <span class="flashcard-line">
+          <span class="answer-index">${index + 1}.</span>
+          <span>${escapeHtml(line)}</span>
+        </span>
+      `;
+    })
+    .join("");
+}
+
+function splitAnswerLines(answer) {
+  return {
+    lead: "",
+    lines: answer
+      .split("\n")
+      .map((line) => line.replace(/^(\d+\)|[①②③④⑤⑥⑦⑧⑨⑩])\s*/, "").trim())
+      .filter(Boolean)
+  };
+}
+
+function splitQuestionLines(question) {
+  const markers = [...question.matchAll(/①|②|③|④|⑤|⑥|⑦|⑧|⑨|⑩|\b\d+\)/g)];
+  if (!markers.length) {
+    return { lead: "", lines: [question.trim()].filter(Boolean) };
+  }
+
+  const lead = question.slice(0, markers[0].index).trim();
+  const lines = markers
+    .map((marker, index) => {
+      const start = marker.index + marker[0].length;
+      const end = markers[index + 1]?.index ?? question.length;
+      return question.slice(start, end).trim();
+    })
+    .filter(Boolean);
+
+  return { lead, lines };
+}
+
+function moveGraduationCard(direction) {
+  graduationIndex = (graduationIndex + direction + graduationDeck.length) % graduationDeck.length;
+  graduationShowingAnswer = false;
+  renderGraduationCard();
+}
+
 function getEvidenceExcerpt(question) {
   return escapeHtml(question.excerpt || question.explanation);
 }
@@ -344,6 +465,10 @@ function shuffle(items) {
     .map(({ item }) => item);
 }
 
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => switchPanel(button.dataset.panel));
+});
+
 chapterSelect.addEventListener("change", () => {
   updateChapterNote();
   generateQuiz();
@@ -353,5 +478,29 @@ focusSelect.addEventListener("change", generateQuiz);
 difficultySelect.addEventListener("change", generateQuiz);
 generateBtn.addEventListener("click", generateQuiz);
 quizForm.addEventListener("submit", showResults);
+graduationPart.addEventListener("change", resetGraduationDeck);
+orderGraduationBtn.addEventListener("click", resetGraduationDeck);
+graduationJump.addEventListener("change", () => {
+  graduationIndex = Number(graduationJump.value);
+  graduationShowingAnswer = false;
+  renderGraduationCard();
+});
+shuffleGraduationBtn.addEventListener("click", () => {
+  graduationDeck = shuffle(graduationDeck);
+  graduationIndex = 0;
+  graduationShowingAnswer = false;
+  renderGraduationJumpOptions();
+  renderGraduationCard();
+});
+prevGraduationBtn.addEventListener("click", () => moveGraduationCard(-1));
+nextGraduationBtn.addEventListener("click", () => moveGraduationCard(1));
+flipGraduationBtn.addEventListener("click", () => {
+  graduationShowingAnswer = !graduationShowingAnswer;
+  renderGraduationCard();
+});
+graduationCard.addEventListener("click", () => {
+  graduationShowingAnswer = !graduationShowingAnswer;
+  renderGraduationCard();
+});
 
 init();

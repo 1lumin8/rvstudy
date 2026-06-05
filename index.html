@@ -25,46 +25,88 @@
         </div>
       </section>
 
-      <section class="controls" aria-label="Quiz settings">
-        <label>
-          Chapter
-          <select id="chapterSelect"></select>
-        </label>
-        <label>
-          Question count
-          <select id="countSelect">
-            <option value="5">5 questions</option>
-            <option value="8" selected>8 questions</option>
-            <option value="10">10 questions</option>
-          </select>
-        </label>
-        <label>
-          Focus
-          <select id="focusSelect">
-            <option value="mixed" selected>Mixed</option>
-            <option value="detail">Detailed</option>
-            <option value="text">Chapter text</option>
-            <option value="class">Source material</option>
-          </select>
-        </label>
-        <label>
-          Question style
-          <select id="difficultySelect">
-            <option value="choice" selected>Multiple choice</option>
-            <option value="mixedFormats">Mixed formats</option>
-          </select>
-        </label>
-        <button id="generateBtn" type="button">Generate Quiz</button>
+      <nav class="study-tabs" aria-label="Study mode">
+        <button class="tab-button active" type="button" data-panel="chapterQuizPanel">Chapter Quiz</button>
+        <button class="tab-button" type="button" data-panel="graduationPanel">Graduation Cards</button>
+      </nav>
+
+      <section id="chapterQuizPanel" class="study-panel">
+        <section class="controls" aria-label="Quiz settings">
+          <label>
+            Chapter
+            <select id="chapterSelect"></select>
+          </label>
+          <label>
+            Question count
+            <select id="countSelect">
+              <option value="5">5 questions</option>
+              <option value="8" selected>8 questions</option>
+              <option value="10">10 questions</option>
+            </select>
+          </label>
+          <label>
+            Focus
+            <select id="focusSelect">
+              <option value="mixed" selected>Mixed</option>
+              <option value="detail">Detailed</option>
+              <option value="text">Chapter text</option>
+              <option value="class">Source material</option>
+            </select>
+          </label>
+          <label>
+            Question style
+            <select id="difficultySelect">
+              <option value="choice" selected>Multiple choice</option>
+              <option value="mixedFormats">Mixed formats</option>
+            </select>
+          </label>
+          <button id="generateBtn" type="button">Generate Quiz</button>
+        </section>
+
+        <section class="chapter-note" id="chapterNote"></section>
+
+        <form id="quizForm" class="quiz" aria-live="polite"></form>
+
+        <section id="results" class="results" hidden></section>
       </section>
 
-      <section class="chapter-note" id="chapterNote"></section>
+      <section id="graduationPanel" class="study-panel" hidden>
+        <section class="controls graduation-controls" aria-label="Graduation card settings">
+          <label>
+            Part
+            <select id="graduationPart">
+              <option value="all" selected>All parts</option>
+              <option value="1">Part 1</option>
+              <option value="2">Part 2</option>
+              <option value="3">Part 3</option>
+            </select>
+          </label>
+          <label>
+            Question
+            <select id="graduationJump"></select>
+          </label>
+          <button class="secondary" id="orderGraduationBtn" type="button">Original Order</button>
+          <button id="shuffleGraduationBtn" type="button">Shuffle Cards</button>
+        </section>
 
-      <form id="quizForm" class="quiz" aria-live="polite"></form>
+        <article class="flashcard" id="graduationCard" tabindex="0" aria-live="polite">
+          <div class="question-head">
+            <span class="question-number" id="graduationProgress"></span>
+            <span class="tag" id="graduationSide">Question</span>
+          </div>
+          <p class="flashcard-text" id="graduationText"></p>
+        </article>
 
-      <section id="results" class="results" hidden></section>
+        <div class="submit-row flashcard-actions">
+          <button class="secondary" id="prevGraduationBtn" type="button">Previous</button>
+          <button id="flipGraduationBtn" type="button">Show Answer</button>
+          <button class="secondary" id="nextGraduationBtn" type="button">Next</button>
+        </div>
+      </section>
     </main>
 
     <script src="quiz-data.js"></script>
+    <script src="graduation-data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

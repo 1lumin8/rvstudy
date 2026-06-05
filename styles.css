@@ -151,6 +151,29 @@ button:hover {
   background: var(--accent-strong);
 }
 
+.study-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 16px;
+}
+
+.tab-button {
+  align-self: auto;
+  background: #e9efed;
+  color: var(--accent-strong);
+  min-height: 42px;
+}
+
+.tab-button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.study-panel[hidden] {
+  display: none;
+}
+
 .chapter-note {
   color: var(--muted);
   line-height: 1.6;
@@ -163,7 +186,8 @@ button:hover {
 }
 
 .question-card,
-.results {
+.results,
+.flashcard {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -187,10 +211,12 @@ button:hover {
   border: 1px solid #ccdcda;
   border-radius: 999px;
   color: var(--accent-strong);
+  display: inline-flex;
   font-size: 0.74rem;
   font-weight: 800;
   padding: 5px 9px;
   white-space: nowrap;
+  width: fit-content;
 }
 
 .prompt {
@@ -322,9 +348,77 @@ button:hover {
   font-weight: 850;
 }
 
+.graduation-controls {
+  grid-template-columns: minmax(160px, 0.55fr) minmax(240px, 1fr) auto auto;
+}
+
+.flashcard {
+  cursor: pointer;
+  min-height: 330px;
+}
+
+.flashcard .question-head {
+  align-items: center;
+}
+
+.flashcard:focus-visible {
+  outline: 3px solid rgba(36, 106, 115, 0.28);
+  outline-offset: 3px;
+}
+
+.flashcard-text {
+  background: #f7faf9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  font-size: 1.03rem;
+  font-weight: 650;
+  gap: 8px;
+  line-height: 1.62;
+  margin: 22px 0 0;
+  padding: 14px;
+  white-space: normal;
+}
+
+.flashcard.showing-answer .flashcard-text {
+  font-size: 0.98rem;
+  font-weight: 520;
+  line-height: 1.5;
+}
+
+.flashcard-lead {
+  color: var(--muted);
+  font-weight: 650;
+  line-height: 1.5;
+  padding-bottom: 4px;
+}
+
+.flashcard-line {
+  border-bottom: 1px solid #e4ebe8;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 32px minmax(0, 1fr);
+  padding: 0 0 8px;
+}
+
+.flashcard-line:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.answer-index {
+  color: var(--accent-strong);
+  font-weight: 850;
+}
+
+.flashcard-actions {
+  margin-top: 14px;
+}
+
 @media (max-width: 780px) {
   .intro,
-  .controls {
+  .controls,
+  .graduation-controls {
     grid-template-columns: 1fr;
   }
 
@@ -336,5 +430,9 @@ button:hover {
   .submit-row {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .flashcard .question-head {
+    align-items: flex-start;
   }
 }
