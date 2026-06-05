@@ -94,10 +94,19 @@ a {
   border: 1px solid var(--line);
   border-radius: 8px;
   display: grid;
-  grid-template-columns: minmax(240px, 1.45fr) minmax(150px, 0.75fr) minmax(140px, 0.65fr) minmax(165px, 0.8fr) max-content;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin: 16px 0;
   padding: 16px;
+}
+
+#chapterQuizPanel .controls label:first-child {
+  grid-column: 1 / -1;
+}
+
+#chapterQuizPanel .controls button {
+  justify-self: end;
+  min-width: 160px;
 }
 
 label {
@@ -122,6 +131,7 @@ input[type="text"] {
   appearance: none;
   border: 1px solid var(--line);
   color: var(--ink);
+  max-width: 100%;
   min-width: 0;
   width: 100%;
 }
@@ -422,6 +432,10 @@ button:hover {
   .controls,
   .graduation-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #chapterQuizPanel .controls label:first-child {
+    grid-column: 1 / -1;
   }
 
   .controls button {
