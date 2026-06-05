@@ -211,44 +211,44 @@ const CHAPTERS = [
   {
     chapter: 18,
     title: "Babylon Falls",
-    note: "Drive class notes emphasize Babylon as a fallen city, the call to come out, cargoes, judgment, and mourning.",
+    note: "Babylon falls: the call to come out, cargoes, judgment, and mourning.",
     questions: [
-      q("class", "In the class notes, what does the angel with great authority do in Revelation 18:1-3?", ["Enlightens people with God's word", "Builds Babylon's market", "Seals the abyss forever", "Measures New Jerusalem"], 0, "The notes connect the angel's authority and illumination with teaching and enlightening people."),
-      q("class", "In the notes on Revelation 18:4, what are God's people told to do?", ["Come out of Babylon to avoid her sins and plagues", "Return to Babylon's cargoes", "Worship the angel", "Seal the scroll"], 0, "The notes highlight the call to come out so God's people do not share in Babylon's sins or plagues."),
-      q("class", "According to the notes, who are Babylon's merchants?", ["Evangelists or sellers of doctrines", "The 24 elders", "The four living creatures", "The sealed tribes"], 0, "The notes interpret merchants as evangelists connected with spiritual trade."),
-      q("class", "What are Babylon's cargoes treated as in the class notes?", ["Various false or gentile doctrines and organizations", "Only literal spices", "The book of life", "The tree of life"], 0, "The notes connect the cargo list with doctrines, rituals, organizations, and workers."),
+      q("class", "What does the angel with great authority do in Revelation 18:1-3?", ["Enlightens people with God's word", "Builds Babylon's market", "Seals the abyss forever", "Measures New Jerusalem"], 0, "The angel's authority and illumination are explained as teaching and enlightening people."),
+      q("class", "In Revelation 18:4, what are God's people told to do?", ["Come out of Babylon to avoid her sins and plagues", "Return to Babylon's cargoes", "Worship the angel", "Seal the scroll"], 0, "God's people are called to come out so they do not share in Babylon's sins or plagues."),
+      q("class", "Who are Babylon's merchants?", ["Evangelists or sellers of doctrines", "The 24 elders", "The four living creatures", "The sealed tribes"], 0, "Merchants are explained as evangelists or sellers connected with spiritual trade."),
+      q("class", "What are Babylon's cargoes?", ["Various false or gentile doctrines and organizations", "Only literal spices", "The book of life", "The tree of life"], 0, "The cargo list is connected with doctrines, rituals, organizations, and workers."),
       q("text", "What does the mighty angel shout about Babylon?", ["Fallen! Fallen is Babylon the Great!", "It is finished!", "Holy, holy, holy!", "Come, Lord Jesus!"], 0, "Revelation 18 opens with the proclamation of Babylon's fall."),
-      q("class", "Why do kings, merchants, and sea workers mourn in the notes?", ["Babylon has fallen and their wealth or authority is ruined", "The city gates are open", "The river of life flows", "The witnesses rise"], 0, "The notes repeatedly say these groups mourn because Babylon and its trade have fallen."),
-      q("class", "In the notes, what does the boulder like a large millstone show?", ["Babylon will be thrown down and never recovered", "The city will be measured in gold", "The dragon will be released", "The tree will bear fruit"], 0, "The millstone image is tied to Babylon being violently thrown down and never found again."),
-      q("class", "What does the lamp/light imagery in verse 23 mean in the notes?", ["False pastors' testimony will no longer shine", "The sun will become brighter", "The twelve gates are pearls", "The sea is healed"], 0, "The notes interpret lamp as pastor and light as word, saying false testimony disappears.")
+      q("class", "Why do kings, merchants, and sea workers mourn?", ["Babylon has fallen and their wealth or authority is ruined", "The city gates are open", "The river of life flows", "The witnesses rise"], 0, "These groups mourn because Babylon and its trade have fallen."),
+      q("class", "What does the boulder like a large millstone show?", ["Babylon will be thrown down and never recovered", "The city will be measured in gold", "The dragon will be released", "The tree will bear fruit"], 0, "The millstone image is tied to Babylon being violently thrown down and never found again."),
+      q("class", "What does the lamp/light imagery in verse 23 mean?", ["False pastors' testimony will no longer shine", "The sun will become brighter", "The twelve gates are pearls", "The sea is healed"], 0, "Lamp is explained as pastor and light as word, saying false testimony disappears.")
     ]
   },
   {
     chapter: 19,
     title: "Wedding Supper and Rider",
-    note: "Drive class notes emphasize rejoicing after Babylon's fall, the wedding supper, white linen, the rider Faithful and True, and judgment.",
+    note: "Rejoicing after Babylon's fall, the wedding supper, white linen, the rider Faithful and True, and judgment.",
     questions: [
-      q("class", "Why does heaven rejoice at the start of Revelation 19 in the notes?", ["God has judged Babylon and avenged his servants", "The dragon is released", "The sea gives up the dead", "The seals begin"], 0, "The notes connect the Hallelujahs with Babylon's fall and God's judgment."),
-      q("class", "What does the bride's fine linen stand for?", ["The righteous acts of the saints", "Babylon's luxury", "The mark of the beast", "The abyss chain"], 0, "The verse itself says fine linen stands for righteous acts; the notes expand on this with the bride preparing."),
-      q("class", "What is needed for the wedding banquet according to the notes?", ["Prepared clothing and the invitation to the Lamb's supper", "Babylon's cargoes", "The mark on the hand", "The sealed thunders"], 0, "The notes connect the banquet with readiness, white clothes, and the invitation."),
+      q("class", "Why does heaven rejoice at the start of Revelation 19?", ["God has judged Babylon and avenged his servants", "The dragon is released", "The sea gives up the dead", "The seals begin"], 0, "The Hallelujahs are connected with Babylon's fall and God's judgment."),
+      q("class", "What does the bride's fine linen stand for?", ["The righteous acts of the saints", "Babylon's luxury", "The mark of the beast", "The abyss chain"], 0, "The verse itself says fine linen stands for righteous acts, and the bride prepares herself."),
+      q("class", "What is needed for the wedding banquet?", ["Prepared clothing and the invitation to the Lamb's supper", "Babylon's cargoes", "The mark on the hand", "The sealed thunders"], 0, "The banquet is connected with readiness, white clothes, and the invitation."),
       q("text", "What is the rider on the white horse called?", ["Faithful and True", "Wormwood", "Abaddon", "Babylon"], 0, "Revelation 19 names the rider Faithful and True."),
-      q("class", "In the notes, what is the sharp sword that comes out of the rider's mouth?", ["The word of judgment", "A literal metal weapon only", "The river of life", "A wedding garment"], 0, "The notes interpret the sword from the mouth as the word used to judge."),
+      q("class", "What is the sharp sword that comes out of the rider's mouth?", ["The word of judgment", "A literal metal weapon only", "The river of life", "A wedding garment"], 0, "The sword from the mouth is explained as the word used to judge."),
       q("class", "Who are captured and thrown into the fiery lake in Revelation 19?", ["The beast and false prophet", "The 24 elders", "The two witnesses", "The bride and Lamb"], 0, "Revelation 19:20 says the beast and false prophet are captured and thrown into the fiery lake."),
-      q("class", "The class notes connect the birds invited to the great supper with whom?", ["Martyrs' spirits satisfied by the testimony", "Merchants selling cargoes", "Kings building Babylon", "The four rivers of Eden"], 0, "The notes interpret the birds as martyrs' spirits hearing testimony of judgment."),
-      q("class", "Which earlier chapter do the notes connect with Armageddon and the final war scene?", ["Revelation 16", "Revelation 4", "Revelation 7", "Revelation 21"], 0, "The notes say the final war connects back to the Armageddon gathering in Revelation 16.")
+      q("class", "Who are the birds invited to the great supper?", ["Martyrs' spirits satisfied by the testimony", "Merchants selling cargoes", "Kings building Babylon", "The four rivers of Eden"], 0, "The birds are explained as martyrs' spirits hearing testimony of judgment."),
+      q("class", "Which earlier chapter connects with Armageddon and the final war scene?", ["Revelation 16", "Revelation 4", "Revelation 7", "Revelation 21"], 0, "The final war connects back to the Armageddon gathering in Revelation 16.")
     ]
   },
   {
     chapter: 20,
     title: "The Millennium and Judgment",
-    note: "Drive class notes emphasize the abyss, the great chain as testimony, the first resurrection, Gog and Magog, and the book of life.",
+    note: "The Abyss, the great chain as testimony, the first resurrection, Gog and Magog, and the book of life.",
     questions: [
-      q("class", "In the class notes, what is the great chain?", ["The word of testimony", "A literal temple wall", "Babylon's cargo", "The twelve gates"], 0, "The notes say the dragon is caught with the word of testimony, not a literal chain."),
+      q("class", "What is the great chain?", ["The word of testimony", "A literal temple wall", "Babylon's cargo", "The twelve gates"], 0, "The dragon is caught with the word of testimony, not a literal chain."),
       q("text", "How long is Satan bound?", ["One thousand years", "Three and a half days", "Forty-two months", "Seven years"], 0, "Revelation 20 says the dragon is bound for a thousand years."),
-      q("class", "Why is the dragon bound according to the notes?", ["So he will not deceive the nations during the thousand years", "So Babylon can trade again", "So the scroll remains sealed", "So the sea can protect people"], 0, "The chapter and notes emphasize preventing deception of the nations."),
-      q("class", "Which three entities do the notes say take part in the first resurrection?", ["Jesus, martyrs' spirits, and the 144,000", "Babylon, merchants, and kings", "Gog, Magog, and the dragon", "The sea, death, and Hades"], 0, "The notes summarize the first resurrection as Jesus, martyrs' spirits, and the sealed 144,000."),
+      q("class", "Why is the dragon bound?", ["So he will not deceive the nations during the thousand years", "So Babylon can trade again", "So the scroll remains sealed", "So the sea can protect people"], 0, "The reason given is to prevent the dragon from deceiving the nations."),
+      q("class", "Which three entities take part in the first resurrection?", ["Jesus, martyrs' spirits, and the 144,000", "Babylon, merchants, and kings", "Gog, Magog, and the dragon", "The sea, death, and Hades"], 0, "The first resurrection is summarized as Jesus, martyrs' spirits, and the sealed 144,000."),
       q("text", "What happens when Satan is released after the thousand years?", ["He deceives Gog and Magog for battle", "He opens the New Jerusalem gates", "He washes robes", "He writes the book of life"], 0, "Revelation 20 says Satan deceives the nations, Gog and Magog."),
-      q("class", "What does the class note identify as the start point of the thousand years?", ["1984.03.14", "1966.03.14", "1995.03.14", "2013.05.25"], 0, "The chapter 20 notes state the start point as 1984.03.14."),
+      q("class", "What is the start point of the thousand years?", ["1984.03.14", "1966.03.14", "1995.03.14", "2013.05.25"], 0, "The start point is stated as 1984.03.14."),
       q("text", "What books are opened at the great white throne?", ["Books and the book of life", "Only Babylon's accounts", "Seven sealed thunders", "The book of Genesis only"], 0, "Revelation 20 shows books opened and another book, the book of life."),
       q("text", "What is the second death?", ["The lake of fire", "The first resurrection", "The wedding supper", "The measuring rod"], 0, "Revelation 20 identifies the lake of fire as the second death.")
     ]
@@ -256,14 +256,14 @@ const CHAPTERS = [
   {
     chapter: 21,
     title: "New Heaven, New Earth, Holy City",
-    note: "Drive class notes emphasize the Holy City, NHNE, no more sea, measuring, twelve gates, and the book of life.",
+    note: "The Holy City, NHNE, no more sea, measuring, twelve gates, and the book of life.",
     questions: [
-      q("class", "According to the notes, how is the new heaven and new earth made?", ["By harvesting and sealing to create the 12 tribes", "By rebuilding Babylon", "By releasing Gog and Magog", "By closing the gates"], 0, "The notes connect NHNE with Revelation 7 and 14: harvesting, sealing, and creating 12 tribes."),
+      q("class", "How is the new heaven and new earth made?", ["By harvesting and sealing to create the 12 tribes", "By rebuilding Babylon", "By releasing Gog and Magog", "By closing the gates"], 0, "NHNE is connected with Revelation 7 and 14: harvesting, sealing, and creating 12 tribes."),
       q("text", "What descends from God in Revelation 21?", ["The Holy City, New Jerusalem", "The abyss", "The beast from the sea", "The locust army"], 0, "John sees the Holy City, New Jerusalem, coming down out of heaven from God."),
       q("text", "What old things pass away in the new creation?", ["Death, mourning, crying, and pain", "The book of life", "The tree of life", "The throne of God"], 0, "Revelation 21 says there will be no more death, mourning, crying, or pain."),
-      q("class", "In the notes, what is the golden measuring rod?", ["The word of truth", "Babylon's wealth", "A literal sword", "A merchant's scale"], 0, "The notes say the angel measures with the word of truth."),
+      q("class", "What is the golden measuring rod?", ["The word of truth", "Babylon's wealth", "A literal sword", "A merchant's scale"], 0, "The angel measures with the word of truth."),
       q("text", "How many gates does the Holy City have?", ["Twelve", "Seven", "Twenty-four", "Four"], 0, "The city has twelve gates with twelve angels and the names of the tribes."),
-      q("class", "In the notes, who are the twelve gates?", ["The twelve tribe leaders", "The seven bowls", "The sea captains", "The four rivers"], 0, "The notes connect the gates with the twelve tribe leaders who open or shut entry."),
+      q("class", "Who are the twelve gates?", ["The twelve tribe leaders", "The seven bowls", "The sea captains", "The four rivers"], 0, "The gates are connected with the twelve tribe leaders who open or shut entry."),
       q("text", "Why does the city not need the sun or moon?", ["God's glory gives it light and the Lamb is its lamp", "Babylon lights it", "The beast gives it authority", "The sea reflects it"], 0, "Revelation 21 says God's glory gives light and the Lamb is its lamp."),
       q("text", "Who may enter the city?", ["Only those written in the Lamb's book of life", "All merchants", "Those with the beast's mark", "Gog and Magog"], 0, "The chapter ends by saying only those written in the Lamb's book of life enter.")
     ]
@@ -271,16 +271,16 @@ const CHAPTERS = [
   {
     chapter: 22,
     title: "Tree of Life and Lord's Messenger",
-    note: "Drive class notes emphasize the water of life, tree of life, keeping the prophecy, washing robes, and the fulfillment timeline.",
+    note: "The water of life, tree of life, keeping the prophecy, washing robes, and the fulfillment timeline.",
     questions: [
-      q("class", "In the notes, where does the water of life come from?", ["The mouth, through the testimony from God's throne", "Babylon's market", "The lake of fire", "The beast's image"], 0, "The notes say the water of life comes from the mouth and connects it with testimony from the throne."),
+      q("class", "Where does the water of life come from?", ["The mouth, through the testimony from God's throne", "Babylon's market", "The lake of fire", "The beast's image"], 0, "The water of life comes from the mouth and is connected with testimony from the throne."),
       q("text", "What grows on each side of the river?", ["The tree of life", "The beast's image", "The seven bowls", "The millstone"], 0, "Revelation 22 describes the tree of life on each side of the river."),
       q("text", "What are the leaves of the tree for?", ["Healing the nations", "Sealing the abyss", "Buying cargo", "Measuring walls"], 0, "The leaves of the tree are for the healing of the nations."),
-      q("class", "In the class notes, what is the river?", ["Evangelists, disciples, or organization carrying the word", "Babylon's luxury cargo", "The second death", "A sealed thunder"], 0, "The notes connect rivers with evangelists, disciples, and organizations through which life-giving word flows."),
+      q("class", "What is the river?", ["Evangelists, disciples, or organization carrying the word", "Babylon's luxury cargo", "The second death", "A sealed thunder"], 0, "Rivers are connected with evangelists, disciples, and organizations through which life-giving word flows."),
       q("text", "Who is blessed in Revelation 22:7?", ["The one who keeps the words of the prophecy", "The one who adds to the book", "The one who worships the angel", "The one who hides the prophecy"], 0, "Jesus says blessed is the one who keeps the words of the prophecy."),
       q("text", "What does the angel tell John when John tries to worship him?", ["Worship God", "Worship me", "Seal the book forever", "Return to Babylon"], 0, "The angel refuses worship and says to worship God."),
       q("text", "What warning is given about adding to the prophecy?", ["God will add the plagues described in the book", "The city gates will open wider", "The tree will bear more fruit", "The dragon will stay bound"], 0, "Revelation 22 warns against adding to the words of the prophecy."),
-      q("class", "Which date do the notes call the foundation day of SCJ?", ["1984.03.14", "1964.05.25", "1990.06", "2002.01.01"], 0, "The fulfillment timeline in the notes marks 1984.03.14 as the foundation day of SCJ.")
+      q("class", "Which date is the foundation day of SCJ?", ["1984.03.14", "1964.05.25", "1990.06", "2002.01.01"], 0, "The fulfillment timeline marks 1984.03.14 as the foundation day of SCJ.")
     ]
   }
 ];
@@ -380,29 +380,29 @@ const DETAILED_QUESTIONS = {
     q("detail", "What are the waters where the prostitute sits?", ["Peoples, multitudes, nations, and languages", "Only literal rivers", "Only the 12 tribes", "Only the seven angels"], 0, "The angel explains the waters as peoples, multitudes, nations, and languages.")
   ],
   18: [
-    q("detail", "In the class notes, why does Babylon become darkened before the angel illuminates the earth?", ["People are intoxicated with maddening wine and do not know Babylon's identity", "The sun and moon vanish forever in chapter 18", "The Lamb hides the prophecy from John", "The merchants refuse to sell lamps"], 0, "The notes say the earth is dark because people are intoxicated with Babylon's maddening wine."),
-    q("detail", "Which passage do the notes use when explaining how one of the 4LC became Satan because of spiritual trade?", ["Ezekiel 28:17-19", "Ezekiel 37:7-10", "Ezekiel 39:17-19", "Ezekiel 1:4-10"], 0, "The notes ask how one of the 4LC became Satan, answer 'because of the trade,' and then cite Ezekiel 28:17-19."),
-    q("detail", "In the notes, what do sea captain, sailors, and travelers mainly point to?", ["Pastors, workers, and congregation members of branch churches", "The 24 elders and four living creatures", "The sealed 144,000 only", "The angels holding the winds"], 0, "The notes interpret the ship and sea-worker imagery through churches, pastors, workers, and members.")
+    q("detail", "Why does Babylon become darkened before the angel illuminates the earth?", ["People are intoxicated with maddening wine and do not know Babylon's identity", "The sun and moon vanish forever in chapter 18", "The Lamb hides the prophecy from John", "The merchants refuse to sell lamps"], 0, "The earth is dark because people are intoxicated with Babylon's maddening wine."),
+    q("detail", "Which passage is used when explaining how one of the 4LC became Satan because of spiritual trade?", ["Ezekiel 28:17-19", "Ezekiel 37:7-10", "Ezekiel 39:17-19", "Ezekiel 1:4-10"], 0, "The material asks how one of the 4LC became Satan, answers 'because of the trade,' and then cites Ezekiel 28:17-19."),
+    q("detail", "What do sea captain, sailors, and travelers mainly point to?", ["Pastors, workers, and congregation members of branch churches", "The 24 elders and four living creatures", "The sealed 144,000 only", "The angels holding the winds"], 0, "The ship and sea-worker imagery points to churches, pastors, workers, and members.")
   ],
   19: [
-    q("detail", "In the class notes, what are wise virgins said to buy from the two witnesses?", ["New oil", "Babylon's cargo", "A golden measuring rod", "A white stone"], 0, "The notes connect the wise virgins with buying new oil from the two witnesses."),
-    q("detail", "How do the notes interpret the robe dipped in blood?", ["Being armed with God's word", "A literal injury from battle only", "Babylon's scarlet clothing", "The martyrs' palm branches"], 0, "The notes connect the blood-dipped robe with God's word and testimony."),
-    q("detail", "In the notes, what is the winepress in Revelation 19?", ["Satan's organization being judged", "The book of life being opened", "The New Jerusalem being measured", "The seven churches receiving letters"], 0, "The notes identify the winepress with the organization being judged.")
+    q("detail", "What are wise virgins said to buy from the two witnesses?", ["New oil", "Babylon's cargo", "A golden measuring rod", "A white stone"], 0, "The wise virgins are connected with buying new oil from the two witnesses."),
+    q("detail", "What is the robe dipped in blood?", ["Being armed with God's word", "A literal injury from battle only", "Babylon's scarlet clothing", "The martyrs' palm branches"], 0, "The blood-dipped robe is connected with God's word and testimony."),
+    q("detail", "What is the winepress in Revelation 19?", ["Satan's organization being judged", "The book of life being opened", "The New Jerusalem being measured", "The seven churches receiving letters"], 0, "The winepress is identified with the organization being judged.")
   ],
   20: [
-    q("detail", "In the class notes, why could Jesus not seize the dragon at the first coming?", ["He spoke in parables and did not yet speak all things plainly", "He did not have authority over spirits", "The dragon had already repented", "The book of life was closed forever"], 0, "The notes say the dragon is caught by plainly revealed testimony, while Jesus spoke in parables at the first coming."),
-    q("detail", "What date do the notes give for the start point of the thousand years?", ["1984.03.14", "1980.09.14", "1995.03.14", "1966.04.04"], 0, "The chapter 20 notes identify 1984.03.14 as the start point."),
-    q("detail", "In the notes, what are earth and sky when they flee from the great white throne?", ["Mission center and Bible students", "Babylon and its merchants", "Gog and Magog", "The beast and false prophet"], 0, "The notes explain sky as mission center and earth as people studying the Bible.")
+    q("detail", "Why could Jesus not seize the dragon at the first coming?", ["He spoke in parables and did not yet speak all things plainly", "He did not have authority over spirits", "The dragon had already repented", "The book of life was closed forever"], 0, "The dragon is caught by plainly revealed testimony, while Jesus spoke in parables at the first coming."),
+    q("detail", "What date is the start point of the thousand years?", ["1984.03.14", "1980.09.14", "1995.03.14", "1966.04.04"], 0, "1984.03.14 is identified as the start point."),
+    q("detail", "What are earth and sky when they flee from the great white throne?", ["Mission center and Bible students", "Babylon and its merchants", "Gog and Magog", "The beast and false prophet"], 0, "Sky is explained as mission center and earth as people studying the Bible.")
   ],
   21: [
-    q("detail", "In the class notes, what three things does the angel measure with the golden rod?", ["The city, gates, and walls", "The sea, abyss, and throne", "The dragon, beast, and false prophet", "The scroll, seals, and trumpets"], 0, "The notes say the angel measures the holy city, the walls, and the gates."),
-    q("detail", "How do the notes interpret the city's 144 cubits of wall thickness?", ["144 representative instructors in the 12 tribes", "144 literal stones in Babylon", "144 angels with bowls", "144 kings from the Euphrates"], 0, "The notes connect 144 cubits with 144 representative instructors."),
-    q("detail", "In the notes, what is the great street of the city?", ["The heart through which the word flows", "The Euphrates River", "Babylon's market road", "The outer court of the temple"], 0, "The notes interpret the street as the heart, especially where the word flows.")
+    q("detail", "What three things does the angel measure with the golden rod?", ["The city, gates, and walls", "The sea, abyss, and throne", "The dragon, beast, and false prophet", "The scroll, seals, and trumpets"], 0, "The angel measures the holy city, the walls, and the gates."),
+    q("detail", "What is the city's 144 cubits of wall thickness?", ["144 representative instructors in the 12 tribes", "144 literal stones in Babylon", "144 angels with bowls", "144 kings from the Euphrates"], 0, "144 cubits is connected with 144 representative instructors."),
+    q("detail", "What is the great street of the city?", ["The heart through which the word flows", "The Euphrates River", "Babylon's market road", "The outer court of the temple"], 0, "The street is explained as the heart, especially where the word flows.")
   ],
   22: [
-    q("detail", "In the class notes, what are the four rivers?", ["The four living creature organizations", "The four horsemen", "The four bowls of wrath", "The four kings of Babylon"], 0, "The notes connect Pishon, Gihon, Tigris, and Euphrates with the four living creature organizations."),
-    q("detail", "What two meanings of baptism are listed in the notes?", ["Atonement of sins and affiliation", "Judgment and trade", "Harvest and sealing", "War and famine"], 0, "The notes list baptism as atonement of sins and affiliation."),
-    q("detail", "Which timeline event is marked as the establishment of the 12 tribes?", ["1995.03.14 at Suwon Sports Complex", "1984.06 in a basement temple", "2002 on the SCJ homepage", "1966.02.17 at a prayer meeting"], 0, "The notes mark 1995.03.14 as the establishment of the 12 tribes at Suwon Sports Complex.")
+    q("detail", "What are the four rivers?", ["The four living creature organizations", "The four horsemen", "The four bowls of wrath", "The four kings of Babylon"], 0, "Pishon, Gihon, Tigris, and Euphrates are connected with the four living creature organizations."),
+    q("detail", "What are the two meanings of baptism?", ["Atonement of sins and affiliation", "Judgment and trade", "Harvest and sealing", "War and famine"], 0, "Baptism is listed as atonement of sins and affiliation."),
+    q("detail", "Which timeline event is marked as the establishment of the 12 tribes?", ["1995.03.14 at Suwon Sports Complex", "1984.06 in a basement temple", "2002 on the SCJ homepage", "1966.02.17 at a prayer meeting"], 0, "1995.03.14 is marked as the establishment of the 12 tribes at Suwon Sports Complex.")
   ]
 };
 

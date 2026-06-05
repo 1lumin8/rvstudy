@@ -31,7 +31,7 @@ function updateChapterNote() {
     ? "Mixed formats are on: multiple choice, true/false, and typed answers."
     : "Multiple choice is on.";
   const sourceText = [
-    classCount ? `${classCount} class-note question${classCount === 1 ? "" : "s"}` : "",
+    classCount ? `${classCount} source question${classCount === 1 ? "" : "s"}` : "",
     detailCount ? `${detailCount} detailed question${detailCount === 1 ? "" : "s"}` : ""
   ].filter(Boolean).join(" and ") || "a general Revelation chapter study bank";
   chapterNote.textContent = `${chapter.note} This chapter has ${sourceText}. ${difficultyText} Current focus has ${pool.length} matching question${pool.length === 1 ? "" : "s"} and can fill up to ${chapter.questions.length} from the full chapter bank.`;
@@ -167,7 +167,7 @@ function buildTrueFalse(question, index) {
 }
 
 function getSourceLabel(source) {
-  if (source === "class") return "Class notes";
+  if (source === "class") return "Source";
   if (source === "detail") return "Detailed";
   return "Chapter text";
 }
