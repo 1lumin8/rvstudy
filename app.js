@@ -214,7 +214,7 @@ function renderChoiceInputs(question) {
         .map(
           ({ choice, choiceIndex }) => `
             <label class="answer-option">
-              <input type="radio" name="${question.id}" value="${choiceIndex}" required />
+              <input type="radio" name="${question.id}" value="${choiceIndex}" />
               <span>${choice}</span>
             </label>
           `
@@ -229,11 +229,11 @@ function renderTrueFalseInputs(question) {
     <p class="true-false-statement">${question.trueFalse.statement}</p>
     <div class="answers">
       <label class="answer-option">
-        <input type="radio" name="${question.id}" value="true" required />
+        <input type="radio" name="${question.id}" value="true" />
         <span>True</span>
       </label>
       <label class="answer-option">
-        <input type="radio" name="${question.id}" value="false" required />
+        <input type="radio" name="${question.id}" value="false" />
         <span>False</span>
       </label>
     </div>
@@ -244,15 +244,17 @@ function renderRecallInput(question) {
   return `
     <label class="recall-answer">
       <span>Type the answer from memory</span>
-      <input type="text" name="${question.id}" autocomplete="off" required />
+      <input type="text" name="${question.id}" autocomplete="off" />
     </label>
   `;
 }
 
 function getSelectedAnswer(data, question) {
-  if (question.format === "recall") return String(data.get(question.id) || "");
-  if (question.format === "trueFalse") return String(data.get(question.id)) === "true";
-  return Number(data.get(question.id));
+  const value = data.get(question.id);
+  if (question.format === "recall") return String(value || "");
+  if (value === null) return null;
+  if (question.format === "trueFalse") return String(value) === "true";
+  return Number(value);
 }
 
 function isAnswerCorrect(question, selected) {
@@ -294,9 +296,9 @@ function renderReviewItem({ question, selected, isCorrect }, index) {
   return `
     <article class="review-item ${isCorrect ? "right" : ""}">
       <strong>${index + 1}. ${isCorrect ? "Correct" : "Review this one"}</strong>
-      <p class="explanation">${question.prompt}</p>
-      <p class="explanation">Your answer: <strong>${selectedText}</strong></p>
-      <p class="explanation">Correct answer: <strong>${answerText}</strong></p>
+      <p class="explanation">${escapeHtml(question.prompt)}</p>
+      <p class="explanation">Your answer: <strong>${escapeHtml(selectedText)}</strong></p>
+      <p class="explanation">Correct answer: <strong>${escapeHtml(answerText)}</strong></p>
       <p class="evidence"><span>Evidence excerpt:</span> ${evidence}</p>
     </article>
   `;
@@ -399,7 +401,8 @@ function getEvidenceExcerpt(question) {
 }
 
 function getReviewSelectedText(question, selected) {
-  if (question.format === "recall") return escapeHtml(String(selected || "No answer selected"));
+  if (question.format === "recall") return String(selected || "No answer selected");
+  if (selected === null) return "No answer selected";
   if (question.format === "trueFalse") return selected ? "True" : "False";
   return question.choices[selected] || "No answer selected";
 }
@@ -434,7 +437,7 @@ function normalizeAnswer(value) {
 }
 
 function escapeHtml(value) {
-  return value
+  return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
