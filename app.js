@@ -19,11 +19,25 @@ const graduationText = document.querySelector("#graduationText");
 const prevGraduationBtn = document.querySelector("#prevGraduationBtn");
 const flipGraduationBtn = document.querySelector("#flipGraduationBtn");
 const nextGraduationBtn = document.querySelector("#nextGraduationBtn");
+const advancedPart = document.querySelector("#advancedPart");
+const advancedJump = document.querySelector("#advancedJump");
+const orderAdvancedBtn = document.querySelector("#orderAdvancedBtn");
+const shuffleAdvancedBtn = document.querySelector("#shuffleAdvancedBtn");
+const advancedCard = document.querySelector("#advancedCard");
+const advancedProgress = document.querySelector("#advancedProgress");
+const advancedSide = document.querySelector("#advancedSide");
+const advancedText = document.querySelector("#advancedText");
+const prevAdvancedBtn = document.querySelector("#prevAdvancedBtn");
+const flipAdvancedBtn = document.querySelector("#flipAdvancedBtn");
+const nextAdvancedBtn = document.querySelector("#nextAdvancedBtn");
 
 let activeQuiz = [];
 let graduationDeck = [];
 let graduationIndex = 0;
 let graduationShowingAnswer = false;
+let advancedDeck = [];
+let advancedIndex = 0;
+let advancedShowingAnswer = false;
 
 function init() {
   CHAPTERS.forEach((chapter) => {
@@ -37,6 +51,7 @@ function init() {
   updateChapterNote();
   generateQuiz();
   resetGraduationDeck();
+  resetAdvancedDeck();
 }
 
 function switchPanel(panelId) {
@@ -344,7 +359,7 @@ function renderGraduationCard() {
 
 function formatGraduationText(card, showingAnswer) {
   const content = showingAnswer
-    ? splitAnswerLines(card.answer)
+    ? splitAnswerLines(card.answer, card.question)
     : splitQuestionLines(card.question);
   const lead = content.lead
     ? `<span class="flashcard-lead">${escapeHtml(content.lead)}</span>`
@@ -353,7 +368,7 @@ function formatGraduationText(card, showingAnswer) {
   return lead + content.lines
     .map((line, index) => {
       return `
-        <span class="flashcard-line">
+        <span class="flashcard-line ${showingAnswer ? "answer-line" : "question-line"}">
           <span class="answer-index">${index + 1}.</span>
           <span>${escapeHtml(line)}</span>
         </span>
@@ -362,18 +377,61 @@ function formatGraduationText(card, showingAnswer) {
     .join("");
 }
 
-function splitAnswerLines(answer) {
+function splitAnswerLines(answer, question) {
+  const lines = answer
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const hasNumberedAnswers = lines.some((line) => /^(\d+\)|[①②③④⑤⑥⑦⑧⑨⑩])/.test(line));
+
+  if (!hasNumberedAnswers) {
+    const questionLineCount = splitQuestionLines(question).lines.length;
+    if (questionLineCount > 1 && lines.length >= questionLineCount) {
+      return {
+        lead: "",
+        lines: [
+          ...lines.slice(0, questionLineCount - 1).map(normalizeCardLine),
+          normalizeCardLine(lines.slice(questionLineCount - 1).join(" "))
+        ]
+      };
+    }
+
+    return {
+      lead: "",
+      lines: [normalizeCardLine(lines.join(" "))].filter(Boolean)
+    };
+  }
+
+  const groupedLines = [];
+  let currentLine = "";
+
+  lines.forEach((line) => {
+    const numberedLine = line.match(/^(\d+\)|[①②③④⑤⑥⑦⑧⑨⑩])\s*(.*)$/);
+    if (numberedLine) {
+      if (currentLine) groupedLines.push(currentLine);
+      currentLine = normalizeCardLine(numberedLine[2]);
+      return;
+    }
+
+    const continuation = normalizeCardLine(line);
+    if (shouldKeepAnswerLineBreak(continuation)) {
+      currentLine = currentLine ? `${currentLine}\n${continuation}` : continuation;
+      return;
+    }
+
+    currentLine = currentLine ? `${currentLine} ${continuation}` : continuation;
+  });
+
+  if (currentLine) groupedLines.push(currentLine);
+
   return {
     lead: "",
-    lines: answer
-      .split("\n")
-      .map((line) => line.replace(/^(\d+\)|[①②③④⑤⑥⑦⑧⑨⑩])\s*/, "").trim())
-      .filter(Boolean)
+    lines: groupedLines
   };
 }
 
 function splitQuestionLines(question) {
-  const markers = [...question.matchAll(/①|②|③|④|⑤|⑥|⑦|⑧|⑨|⑩|\b\d+\)/g)];
+  const markers = getQuestionMarkers(question);
   if (!markers.length) {
     return { lead: "", lines: [question.trim()].filter(Boolean) };
   }
@@ -381,19 +439,94 @@ function splitQuestionLines(question) {
   const lead = question.slice(0, markers[0].index).trim();
   const lines = markers
     .map((marker, index) => {
-      const start = marker.index + marker[0].length;
+      const start = marker.end ?? marker.index + marker[0].length;
       const end = markers[index + 1]?.index ?? question.length;
-      return question.slice(start, end).trim();
+      return normalizeCardLine(question.slice(start, end));
     })
     .filter(Boolean);
 
-  return { lead, lines };
+  return { lead: normalizeCardLine(lead), lines };
+}
+
+function normalizeCardLine(value) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function shouldKeepAnswerLineBreak(line) {
+  return /^(Rv|Rev|Mt|Jn|Exo|Dt|Heb|1 Cor|1Cor|Ezekiel|Time of|Jesus’|God’s seed:|Blood of Jesus:|Sealing:)/i.test(line);
+}
+
+function getQuestionMarkers(question) {
+  const circledMarkers = [...question.matchAll(/①|②|③|④|⑤|⑥|⑦|⑧|⑨|⑩|\b\d+\)/g)];
+  if (circledMarkers.length) return circledMarkers;
+
+  const sequentialMarkers = [];
+  let nextNumber = 1;
+  const dottedMarkers = [...question.matchAll(/(?=(^|\s)(\d+)\.\s+)/g)];
+
+  dottedMarkers.forEach((marker) => {
+    const number = Number(marker[2]);
+    if (number !== nextNumber) return;
+    const index = marker.index + marker[1].length;
+    sequentialMarkers.push({
+      0: marker[2],
+      end: index + marker[2].length + 2,
+      index
+    });
+    nextNumber += 1;
+  });
+
+  return sequentialMarkers;
 }
 
 function moveGraduationCard(direction) {
   graduationIndex = (graduationIndex + direction + graduationDeck.length) % graduationDeck.length;
   graduationShowingAnswer = false;
   renderGraduationCard();
+}
+
+function resetAdvancedDeck() {
+  const selectedPart = advancedPart.value;
+  advancedDeck = ADVANCED_CARDS.filter((card) => {
+    return selectedPart === "all" || String(card.part) === selectedPart;
+  });
+  advancedIndex = 0;
+  advancedShowingAnswer = false;
+  renderAdvancedJumpOptions();
+  renderAdvancedCard();
+}
+
+function renderAdvancedJumpOptions() {
+  advancedJump.innerHTML = "";
+  advancedDeck.forEach((card, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = `Part ${card.part}, Question ${card.number}`;
+    advancedJump.append(option);
+  });
+}
+
+function renderAdvancedCard() {
+  const card = advancedDeck[advancedIndex];
+  if (!card) {
+    advancedProgress.textContent = "No cards";
+    advancedSide.textContent = "Question";
+    advancedText.textContent = "";
+    return;
+  }
+
+  advancedJump.value = String(advancedIndex);
+  advancedProgress.textContent = `Card ${advancedIndex + 1} of ${advancedDeck.length} · Part ${card.part}, Question ${card.number}`;
+  advancedSide.textContent = advancedShowingAnswer ? "Answer" : "Question";
+  advancedCard.classList.toggle("showing-answer", advancedShowingAnswer);
+  advancedText.innerHTML = formatGraduationText(card, advancedShowingAnswer);
+  flipAdvancedBtn.textContent = advancedShowingAnswer ? "Show Question" : "Show Answer";
+}
+
+function moveAdvancedCard(direction) {
+  advancedIndex = (advancedIndex + direction + advancedDeck.length) % advancedDeck.length;
+  advancedShowingAnswer = false;
+  renderAdvancedCard();
 }
 
 function getEvidenceExcerpt(question) {
@@ -507,6 +640,30 @@ flipGraduationBtn.addEventListener("click", () => {
 graduationCard.addEventListener("click", () => {
   graduationShowingAnswer = !graduationShowingAnswer;
   renderGraduationCard();
+});
+advancedPart.addEventListener("change", resetAdvancedDeck);
+orderAdvancedBtn.addEventListener("click", resetAdvancedDeck);
+advancedJump.addEventListener("change", () => {
+  advancedIndex = Number(advancedJump.value);
+  advancedShowingAnswer = false;
+  renderAdvancedCard();
+});
+shuffleAdvancedBtn.addEventListener("click", () => {
+  advancedDeck = shuffle(advancedDeck);
+  advancedIndex = 0;
+  advancedShowingAnswer = false;
+  renderAdvancedJumpOptions();
+  renderAdvancedCard();
+});
+prevAdvancedBtn.addEventListener("click", () => moveAdvancedCard(-1));
+nextAdvancedBtn.addEventListener("click", () => moveAdvancedCard(1));
+flipAdvancedBtn.addEventListener("click", () => {
+  advancedShowingAnswer = !advancedShowingAnswer;
+  renderAdvancedCard();
+});
+advancedCard.addEventListener("click", () => {
+  advancedShowingAnswer = !advancedShowingAnswer;
+  renderAdvancedCard();
 });
 
 init();

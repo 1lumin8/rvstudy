@@ -26,11 +26,12 @@
       </section>
 
       <nav class="study-tabs" aria-label="Study mode">
-        <button class="tab-button active" type="button" data-panel="chapterQuizPanel">Chapter Quiz</button>
-        <button class="tab-button" type="button" data-panel="graduationPanel">Graduation Cards</button>
+        <button class="tab-button active" type="button" data-panel="graduationPanel">Graduation Cards</button>
+        <button class="tab-button" type="button" data-panel="advancedPanel">Advanced Class</button>
+        <button class="tab-button" type="button" data-panel="chapterQuizPanel">Chapter Quiz</button>
       </nav>
 
-      <section id="chapterQuizPanel" class="study-panel">
+      <section id="chapterQuizPanel" class="study-panel" hidden>
         <section class="controls" aria-label="Quiz settings">
           <label>
             Chapter
@@ -70,7 +71,7 @@
         <section id="results" class="results" hidden></section>
       </section>
 
-      <section id="graduationPanel" class="study-panel" hidden>
+      <section id="graduationPanel" class="study-panel">
         <section class="controls graduation-controls" aria-label="Graduation card settings">
           <label>
             Part
@@ -103,10 +104,45 @@
           <button class="secondary" id="nextGraduationBtn" type="button">Next</button>
         </div>
       </section>
+
+      <section id="advancedPanel" class="study-panel" hidden>
+        <section class="controls card-controls" aria-label="Advanced class card settings">
+          <label>
+            Part
+            <select id="advancedPart">
+              <option value="all" selected>All parts</option>
+              <option value="1">Part 1</option>
+              <option value="2">Part 2</option>
+              <option value="3">Part 3</option>
+            </select>
+          </label>
+          <label>
+            Question
+            <select id="advancedJump"></select>
+          </label>
+          <button class="secondary" id="orderAdvancedBtn" type="button">Original Order</button>
+          <button id="shuffleAdvancedBtn" type="button">Shuffle Cards</button>
+        </section>
+
+        <article class="flashcard" id="advancedCard" tabindex="0" aria-live="polite">
+          <div class="question-head">
+            <span class="question-number" id="advancedProgress"></span>
+            <span class="tag" id="advancedSide">Question</span>
+          </div>
+          <p class="flashcard-text" id="advancedText"></p>
+        </article>
+
+        <div class="submit-row flashcard-actions">
+          <button class="secondary" id="prevAdvancedBtn" type="button">Previous</button>
+          <button id="flipAdvancedBtn" type="button">Show Answer</button>
+          <button class="secondary" id="nextAdvancedBtn" type="button">Next</button>
+        </div>
+      </section>
     </main>
 
     <script src="quiz-data.js"></script>
     <script src="graduation-data.js"></script>
+    <script src="advanced-data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

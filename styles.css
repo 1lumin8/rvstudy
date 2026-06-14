@@ -361,7 +361,8 @@ button:hover {
   font-weight: 850;
 }
 
-.graduation-controls {
+.graduation-controls,
+.card-controls {
   grid-template-columns: minmax(160px, 0.55fr) minmax(240px, 1fr) auto auto;
 }
 
@@ -384,19 +385,19 @@ button:hover {
   border: 1px solid var(--line);
   border-radius: 8px;
   display: grid;
-  font-size: 1.03rem;
-  font-weight: 650;
-  gap: 8px;
-  line-height: 1.62;
+  font-size: 0.94rem;
+  font-weight: 600;
+  gap: 6px;
+  line-height: 1.48;
   margin: 22px 0 0;
-  padding: 14px;
+  padding: 12px;
   white-space: normal;
 }
 
 .flashcard.showing-answer .flashcard-text {
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   font-weight: 520;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .flashcard-lead {
@@ -409,14 +410,18 @@ button:hover {
 .flashcard-line {
   border-bottom: 1px solid #e4ebe8;
   display: grid;
-  gap: 10px;
-  grid-template-columns: 32px minmax(0, 1fr);
-  padding: 0 0 8px;
+  gap: 8px;
+  grid-template-columns: 26px minmax(0, 1fr);
+  padding: 0 0 7px;
 }
 
 .flashcard-line:last-child {
   border-bottom: 0;
   padding-bottom: 0;
+}
+
+.answer-line span:last-child {
+  white-space: pre-line;
 }
 
 .answer-index {
@@ -430,7 +435,8 @@ button:hover {
 
 @media (max-width: 1040px) {
   .controls,
-  .graduation-controls {
+  .graduation-controls,
+  .card-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -446,7 +452,8 @@ button:hover {
 @media (max-width: 780px) {
   .intro,
   .controls,
-  .graduation-controls {
+  .graduation-controls,
+  .card-controls {
     grid-template-columns: 1fr;
   }
 
