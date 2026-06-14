@@ -191,7 +191,7 @@ function buildTrueFalse(question, index) {
 
   return {
     expected: makeTrue,
-    statement: `The answer to "${question.prompt}" is "${displayedChoice}."`
+    statement: `Judge this statement: "${displayedChoice}" is the correct answer.`
   };
 }
 
@@ -226,7 +226,7 @@ function renderChoiceInputs(question) {
 
 function renderTrueFalseInputs(question) {
   return `
-    <p class="true-false-statement">${question.trueFalse.statement}</p>
+    <p class="true-false-statement">${escapeHtml(question.trueFalse.statement)}</p>
     <div class="answers">
       <label class="answer-option">
         <input type="radio" name="${question.id}" value="true" />
@@ -408,7 +408,10 @@ function getReviewSelectedText(question, selected) {
 }
 
 function getReviewAnswerText(question) {
-  if (question.format === "trueFalse") return question.trueFalse.expected ? "True" : "False";
+  if (question.format === "trueFalse") {
+    const trueFalseAnswer = question.trueFalse.expected ? "True" : "False";
+    return `${trueFalseAnswer} - correct answer: ${question.choices[question.answer]}`;
+  }
   return question.choices[question.answer];
 }
 
